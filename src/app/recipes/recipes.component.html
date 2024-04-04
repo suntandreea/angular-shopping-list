@@ -1,9 +1,12 @@
-RECIPES
 <div class="row">
   <div class="col-md-5">
-    <app-recipe-list></app-recipe-list>
+<!--    <app-recipe-list (selectedRecipeEvent)="activeRecipe = $event"> //todo MERGE SI ASA!!! -->
+    <app-recipe-list (selectedRecipeEvent)="showSelectedRecipeDetails($event)"></app-recipe-list>
   </div>
   <div class="col-md-7">
-    <app-recipe-detail></app-recipe-detail>
+    <app-recipe-detail *ngIf="activeRecipe; else infoText" [recipe]="activeRecipe"/>
+    <ng-template #infoText>
+      <p>Please select a recipe!</p>
+    </ng-template>
   </div>
 </div>

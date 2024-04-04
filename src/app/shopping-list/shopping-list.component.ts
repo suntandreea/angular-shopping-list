@@ -7,8 +7,13 @@ import {Ingredient} from '../shared/ingredient.model';
   styleUrl: './shopping-list.component.css'
 })
 export class ShoppingListComponent {
+
 ingredients: Ingredient[] = [
   new Ingredient('Nappa cabbage', 3),
   new Ingredient('Daikon', 1)
 ];
+
+  addNewIngredientHandler(newIngredient: Ingredient) {
+    this.ingredients.push(newIngredient);
+  }
 }
